@@ -295,7 +295,7 @@ export default function Home() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="text-white text-2xl md:text-4xl text-left font-bold flex items-center gap-2 md:gap-3"
               >
-                <RiMovie2Line className="text-red-500 text-3xl" />
+                <RiMovie2Line className="text-red-500 text-xl md:text-3xl" />
                 {t("Our Upcoming Movies")}
               </motion.h1>
               <motion.div
@@ -378,7 +378,7 @@ export default function Home() {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="text-white text-2xl md:text-4xl text-left font-bold flex items-center gap-2 md:gap-3"
                 >
-                  <FaTv className="text-red-500 text-3xl" />
+                  <FaTv className="text-red-500 text-xl md:text-3xl" />
                   {t("Our Top Rated Series")}
                 </motion.h1>
                 <motion.div

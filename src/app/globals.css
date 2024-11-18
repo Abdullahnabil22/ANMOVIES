@@ -16,7 +16,6 @@
   animation: float 3s ease-in-out infinite !important;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -38,7 +37,6 @@
   box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
 }
 
-/* For Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: #ff0000 #1a1a1a;
@@ -65,4 +63,37 @@
 .red-ring {
   box-shadow: 0 0 8px rgba(255, 0, 0, 0.5) !important;
   border: 3px solid rgba(255, 0, 0, 0.5) !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    padding: 0.5rem;
+    color: white;
+    border-radius: 0.5rem;
+  }
+
+  .mobile-menu-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5rem;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobile-menu.show {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu {
+    display: none !important;
+  }
 }
