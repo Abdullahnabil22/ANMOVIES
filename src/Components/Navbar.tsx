@@ -76,7 +76,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
           </Link>
 
           <div
-            className={`hidden md:flex items-center gap-1 ${
+            className={`flex items-center gap-1 ${
               isRTL ? "flex-row-reverse" : ""
             }`}
           >
