@@ -43,3 +43,9 @@
   scrollbar-width: thin;
   scrollbar-color: #ff0000 #1a1a1a;
 }
+
+.navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+}

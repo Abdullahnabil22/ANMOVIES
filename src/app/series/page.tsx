@@ -78,7 +78,7 @@ function Series() {
       <main className="bg-black">
         <NavBar isSeries={true} />
 
-        <div className="max-w-7xl mx-auto flex justify-center items-center px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto flex justify-center items-center px-4 sm:px-6 lg:px-8 py-8 ">
           <div className="relative w-full max-w-2xl">
             <input
               type="text"
