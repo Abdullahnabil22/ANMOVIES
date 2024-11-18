@@ -79,13 +79,13 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden mobile-menu-button text-white p-2 hover:bg-white/10 rounded-lg"
+            className="md:hidden mobile-menu-button text-white p-2 hover:bg-white/10 rounded-lg transition-all duration-200"
           >
             {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
 
           <div
-            className={`hidden lg:flex items-center gap-1 ${
+            className={`hidden md:flex items-center gap-1 ${
               isRTL ? "flex-row-reverse" : ""
             }`}
           >
