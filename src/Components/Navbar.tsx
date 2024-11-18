@@ -62,7 +62,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
               <span
                 className={
                   isSeries
-                    ? " bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text"
+                    ? "text-transparent bg-gradient-to-r from-green-500 via-green-600 to-green-700 bg-clip-text"
                     : "text-transparent bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text"
                 }
               >
@@ -85,7 +85,9 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                 isRTL ? "flex-row-reverse" : ""
               } px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200`}
             >
-              <FaFilm className={isSeries ? "text-blue-500" : "text-red-500"} />
+              <FaFilm
+                className={isSeries ? "text-green-500" : "text-red-500"}
+              />
               <span>{t("Movies")}</span>
             </Link>
 
@@ -95,7 +97,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                 isRTL ? "flex-row-reverse" : ""
               } px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200`}
             >
-              <FaTv className={isSeries ? "text-blue-500" : "text-red-500"} />
+              <FaTv className={isSeries ? "text-green-500" : "text-red-500"} />
               <span>{t("Series")}</span>
             </Link>
 
@@ -107,7 +109,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                 } px-4 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200`}
               >
                 <FaHeart
-                  className={isSeries ? "text-blue-500" : "text-red-500"}
+                  className={isSeries ? "text-green-500" : "text-red-500"}
                 />
                 <span>{t("Favorites")}</span>
               </Link>
@@ -130,7 +132,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                   isRTL ? "flex-row-reverse" : ""
                 } px-4 py-2 ${
                   isSeries
-                    ? "bg-blue-600 hover:bg-blue-700"
+                    ? "bg-green-600 hover:bg-green-700"
                     : "bg-red-600 hover:bg-red-700"
                 } text-white rounded-lg transition-all duration-200 text-sm font-medium`}
               >
@@ -158,7 +160,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                     isRTL ? "flex-row-reverse" : ""
                   } px-4 py-2 ${
                     isSeries
-                      ? "bg-blue-600 hover:bg-blue-700"
+                      ? "bg-green-600 hover:bg-green-700"
                       : "bg-red-600 hover:bg-red-700"
                   } text-white rounded-lg transition-all duration-200 text-sm font-medium`}
                 >
@@ -187,7 +189,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                   className={`w-8 h-8 rounded-full overflow-hidden transition-all duration-200 ${
                     locale === code
                       ? isSeries
-                        ? "ring-2 ring-blue-500 ring-offset-1 ring-offset-black"
+                        ? "ring-2 ring-green-500 ring-offset-1 ring-offset-black"
                         : "ring-2 ring-red-500 ring-offset-1 ring-offset-black"
                       : "opacity-60 hover:opacity-100"
                   }`}
