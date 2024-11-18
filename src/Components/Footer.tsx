@@ -5,6 +5,15 @@ import { useLocale, useTranslations } from "next-intl";
 function Footer({ bg }: { bg: string }) {
   const locale = useLocale();
   const t = useTranslations("Footer");
+  const socialLinks = {
+    twitter: { link: "https://x.com/Nabil_AN22", Icon: FaTwitter },
+    linkedin: {
+      link: "https://www.linkedin.com/in/abdullah-nabil22/",
+      Icon: FaLinkedin,
+    },
+    email: { link: "mailto:abdullahn.work@gmail.com", Icon: FaEnvelope },
+    github: { link: "https://github.com/Abdullahnabil22", Icon: FaGithub },
+  };
   return (
     <footer
       className={`${bg} text-white py-8 px-4`}
@@ -43,18 +52,17 @@ function Footer({ bg }: { bg: string }) {
             <h4 className="text-xl font-semibold mb-4">
               {t("Connect With Us")}
             </h4>
-            <div className="flex space-x-4">
-              {[FaTwitter, FaLinkedin, FaEnvelope, FaGithub].map(
-                (Icon, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="text-gray-400 hover:text-red-500 transition-colors mx-2"
-                  >
-                    <Icon size={24} />
-                  </a>
-                )
-              )}
+            <div className="flex ">
+              {Object.values(socialLinks).map(({ link, Icon }) => (
+                <a
+                  key={link}
+                  href={link}
+                  target="_blank"
+                  className="text-gray-400 hover:text-red-500 transition-colors mx-2"
+                >
+                  <Icon size={24} />
+                </a>
+              ))}
             </div>
           </div>
         </div>

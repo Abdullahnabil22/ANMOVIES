@@ -78,14 +78,14 @@ function Series() {
       <main className="bg-black">
         <NavBar isSeries={true} />
 
-        <div className="max-w-7xl mx-auto flex justify-center items-center px-4 sm:px-6 lg:px-8 py-8 ">
+        <div className="max-w-7xl mx-auto flex justify-center items-center px-2 sm:px-6 lg:px-8 py-4 sm:py-8">
           <div className="relative w-full max-w-2xl">
             <input
               type="text"
               value={search}
               onChange={handleSearchChange}
               placeholder={t("Search for a series")}
-              className="w-full p-4 pl-12 rounded-xl bg-gray-800/50 text-white placeholder-gray-400 border border-gray-700 focus:border-blue-500 focus:ring-blue-500 focus:ring-2 focus:outline-none transition-all duration-300 backdrop-blur-sm"
+              className="w-full p-3 sm:p-4 pl-10 sm:pl-12 text-sm sm:text-base rounded-xl bg-gray-800/50 text-white placeholder-gray-400 border border-gray-700 focus:border-blue-500 focus:ring-blue-500 focus:ring-2 focus:outline-none transition-all duration-300 backdrop-blur-sm"
             />
             <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
             <FaXmark
@@ -97,12 +97,14 @@ function Series() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+          className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 sm:py-8"
           dir={locale === "ar" ? "rtl" : "ltr"}
         >
-          <div className="flex items-center gap-3 mb-8">
-            <BiTv className="text-blue-500 text-3xl" />
-            <h1 className="text-4xl font-bold text-white">{t("Series")}</h1>
+          <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-8">
+            <BiTv className="text-blue-500 text-2xl sm:text-3xl" />
+            <h1 className="text-2xl sm:text-4xl font-bold text-white">
+              {t("Series")}
+            </h1>
           </div>
           {search && (
             <p className="text-white mb-4">
@@ -113,10 +115,10 @@ function Series() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col items-center justify-center p-12 rounded-xl bg-gray-800/30 backdrop-blur-sm border border-gray-700"
+              className="flex flex-col items-center justify-center p-6 sm:p-12 rounded-xl bg-gray-800/30 backdrop-blur-sm border border-gray-700"
             >
-              <div className="relative mb-6">
-                <BiTv className="text-7xl text-gray-500" />
+              <div className="relative mb-4 sm:mb-6">
+                <BiTv className="text-5xl sm:text-7xl text-gray-500" />
                 <motion.div
                   animate={{
                     opacity: [0.5, 1, 0.5],
@@ -132,10 +134,10 @@ function Series() {
                   <FaXmark className="text-3xl text-blue-500" />
                 </motion.div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 text-center">
                 {t("No Series Found")}
               </h3>
-              <p className="text-gray-400 text-center max-w-md mb-4">
+              <p className="text-sm sm:text-base text-gray-400 text-center max-w-md mb-4">
                 {t(
                   "Sorry, we couldn't find any TV series matching your search"
                 )}
@@ -160,7 +162,7 @@ function Series() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6"
           >
             {series.map((serie) => (
               <motion.div
@@ -183,8 +185,8 @@ function Series() {
                     height={450}
                     className="object-cover rounded-lg bg-black transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-blue-800/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="text-white font-bold text-xl mb-2 stroke-black stroke-2">
+                  <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 bg-gradient-to-t from-blue-800/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h3 className="text-white font-bold text-sm sm:text-xl mb-1 sm:mb-2 stroke-black stroke-2 line-clamp-2">
                       {serie.name}
                     </h3>
                     <div className="flex items-center justify-between text-gray-300 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

@@ -101,17 +101,17 @@ function Movies() {
 
   return (
     <>
-      <main className="bg-black">
+      <main className="bg-black min-h-screen">
         <NavBar isSeries={false} />
 
-        <div className="max-w-7xl mx-auto flex justify-center items-center px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto flex justify-center items-center px-4 py-4 sm:py-8">
           <div className="relative w-full max-w-2xl">
             <input
               type="text"
               value={searchInput}
               onChange={handleSearchChange}
               placeholder={t("Search for a movie")}
-              className="w-full p-4 pl-12 rounded-xl bg-gray-800/50 text-white placeholder-gray-400 border border-gray-700 focus:border-red-500 focus:ring-red-500 focus:ring-2 focus:outline-none transition-all duration-300 backdrop-blur-sm"
+              className="w-full p-3 sm:p-4 pl-10 sm:pl-12 text-sm sm:text-base rounded-xl bg-gray-800/50 text-white placeholder-gray-400 border border-gray-700 focus:border-red-500 focus:ring-red-500 focus:ring-2 focus:outline-none transition-all duration-300 backdrop-blur-sm"
             />
             <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg" />
             <FaXmark
@@ -123,12 +123,14 @@ function Movies() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+          className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 sm:py-8"
           dir={locale === "ar" ? "rtl" : "ltr"}
         >
-          <div className="flex items-center gap-3 mb-8">
-            <RiMovie2Line className="text-red-500 text-3xl" />
-            <h1 className="text-4xl font-bold text-white">{t("Movies")}</h1>
+          <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-8">
+            <RiMovie2Line className="text-red-500 text-2xl sm:text-3xl" />
+            <h1 className="text-2xl sm:text-4xl font-bold text-white">
+              {t("Movies")}
+            </h1>
           </div>
           {search && (
             <p className="text-white mb-4">
@@ -194,7 +196,7 @@ function Movies() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6"
           >
             {movies.map((movie) => (
               <motion.div
@@ -213,42 +215,45 @@ function Movies() {
                     width={300}
                     height={450}
                     priority
-                    className="object-cover rounded-lg bg-black transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-auto object-cover rounded-lg bg-black transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-red-800/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="text-white font-bold text-xl mb-2 stroke-black stroke-2">
+                  <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 bg-gradient-to-t from-red-800/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h3 className="text-white font-bold text-sm sm:text-xl mb-1 sm:mb-2 stroke-black stroke-2 line-clamp-2">
                       {movie.title}
                     </h3>
                     <div className="flex items-center justify-between text-gray-300 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       <div className="flex items-center gap-1">
-                        <FaStar className="text-yellow-500" />
-                        <span className="font-semibold">
+                        <FaStar className="text-yellow-500 text-xs sm:text-base" />
+                        <span className="font-semibold text-xs sm:text-base">
                           {movie.vote_average?.toFixed(1)}
                         </span>
                       </div>
-                      <div className="flex gap-2">
+                      <div className="flex gap-1 sm:gap-2">
                         <motion.button
                           onClick={() => router.push(`/movies/${movie.id}`)}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          className="p-2 rounded-full bg-primary/80 hover:bg-primary text-white transition-colors"
+                          className="p-1.5 sm:p-2 rounded-full bg-primary/80 hover:bg-primary text-white transition-colors"
                         >
-                          <FaPlay size={14} />
+                          <FaPlay size={12} className="sm:w-3.5 sm:h-3.5" />
                         </motion.button>
                         <motion.button
                           onClick={(e) => handleFavorite(e, movie)}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          className={`p-2 rounded-full ${
+                          className={`p-1.5 sm:p-2 rounded-full ${
                             fav.some((item) => item.id === movie.id)
                               ? "bg-red-500 hover:bg-red-600"
                               : "bg-red-800/80 hover:bg-red-700"
                           } text-white transition-colors`}
                         >
                           {fav.some((item) => item.id === movie.id) ? (
-                            <FaHeart size={14} />
+                            <FaHeart size={12} className="sm:w-3.5 sm:h-3.5" />
                           ) : (
-                            <FaRegHeart size={14} />
+                            <FaRegHeart
+                              size={12}
+                              className="sm:w-3.5 sm:h-3.5"
+                            />
                           )}
                         </motion.button>
                       </div>

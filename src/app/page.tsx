@@ -89,12 +89,12 @@ export default function Home() {
       ) : (
         <>
           <Navbar isSeries={false} />
-          <div className="h-[90vh] w-full -mt-20">
+          <div className="h-[80vh] md:h-[90vh] w-full -mt-20">
             <Swiper
               modules={[Autoplay]}
               autoplay={{ delay: 3000 }}
               loop={true}
-              className="w-full h-[90vh] overflow-hidden"
+              className="w-full h-[80vh] md:h-[90vh] overflow-hidden"
               key={locale}
             >
               {movies.map((movie) => (
@@ -118,14 +118,14 @@ export default function Home() {
 
                     {/* Content */}
                     <div
-                      className="relative z-10 h-full flex items-center p-10"
+                      className="relative z-10 h-full flex items-center p-4 md:p-10"
                       dir={locale === "ar" ? "rtl" : "ltr"}
                     >
-                      <div className="container mx-auto px-4 space-y-6">
+                      <div className="container mx-auto px-2 md:px-4 space-y-4 md:space-y-6">
                         <motion.h1
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
-                          className="text-5xl font-bold text-white max-w-2xl"
+                          className="text-3xl md:text-5xl font-bold text-white max-w-2xl"
                         >
                           {movieLogos[movie.id] &&
                             movieLogos[movie.id] !== null && (
@@ -142,7 +142,7 @@ export default function Home() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.2 }}
-                          className="text-gray-200 max-w-xl"
+                          className="text-sm md:text-base text-gray-200 max-w-xl"
                         >
                           {movie.overview.slice(0, 100)}...
                         </motion.p>
@@ -151,17 +151,17 @@ export default function Home() {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.4 }}
-                          className="flex gap-4"
+                          className="flex gap-2 md:gap-4"
                         >
                           <button
-                            className="flex items-center gap-2 bg-red-500 text-white px-8 py-4 rounded-full hover:bg-white hover:text-red-500 border-2 border-transparent hover:border-red-500 transition-all duration-300 transform hover:scale-105"
+                            className="flex items-center gap-1 md:gap-2 bg-red-500 text-white px-4 md:px-8 py-2 md:py-4 text-sm md:text-base rounded-full hover:bg-white hover:text-red-500 border-2 border-transparent hover:border-red-500 transition-all duration-300 transform hover:scale-105"
                             onClick={() => {
                               router.push(`/movies/${movie.id}`);
                             }}
                           >
                             <FaPlay /> {t("Watch Now")}
                           </button>
-                          <button className="flex items-center gap-2 bg-transparent text-white px-8 py-4 rounded-full border-2 border-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
+                          <button className="flex items-center gap-1 md:gap-2 bg-transparent text-white px-4 md:px-8 py-2 md:py-4 text-sm md:text-base rounded-full border-2 border-white hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
                             <FaStar /> {Math.round(movie.vote_average)}{" "}
                             {t("Rating")}
                           </button>
@@ -173,13 +173,13 @@ export default function Home() {
               ))}
             </Swiper>
           </div>
-          <div className="w-full bg-gradient-to-b from-black to-gray-900 min-h-screen flex items-center justify-center py-20">
+          <div className="w-full bg-gradient-to-b from-black to-gray-900 min-h-screen flex items-center justify-center py-10 md:py-20">
             <div className="w-full ">
               <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-white text-4xl mb-16 text-center font-bold flex items-center justify-center gap-4"
+                className="text-white text-2xl md:text-4xl mb-8 md:mb-16 text-center font-bold flex items-center justify-center gap-2 md:gap-4 px-4"
               >
                 <FaFire className="text-red-500 animate-bounce" />
                 {t("Our Today's Trending For You")}
@@ -203,7 +203,13 @@ export default function Home() {
                 modules={[EffectCoverflow, Navigation]}
                 className="w-full py-20"
                 breakpoints={{
+                  320: {
+                    slidesPerView: 1,
+                  },
                   640: {
+                    slidesPerView: 2,
+                  },
+                  768: {
                     slidesPerView: 3,
                   },
                   1024: {
@@ -241,13 +247,13 @@ export default function Home() {
               </Swiper>
             </div>
           </div>
-          <div className="w-full bg-gradient-to-b from-gray-900 to-black py-20">
+          <div className="w-full bg-gradient-to-b from-gray-900 to-black py-10 md:py-20">
             <div className="w-full">
               <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-white text-4xl mb-16 text-center font-bold flex items-center justify-center gap-4"
+                className="text-white text-2xl md:text-4xl mb-8 md:mb-16 text-center font-bold flex items-center justify-center gap-2 md:gap-4"
               >
                 <FaFilm className="text-red-500 animate-bounce" />
                 {t("Our Genres")}
@@ -277,16 +283,16 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-full bg-black min-h-screen flex flex-col items-center justify-center py-20">
+          <div className="w-full bg-black min-h-screen flex flex-col items-center justify-center py-10 md:py-20">
             <div
-              className="w-full max-w-[1800px] px-8 flex items-center justify-between mb-16 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-red-500 after:to-transparent after:opacity-50 py-4 "
+              className="w-full max-w-[1800px] px-4 md:px-8 flex items-center justify-between mb-8 md:mb-16"
               dir={locale === "ar" ? "rtl" : "ltr"}
             >
               <motion.h1
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-white text-4xl text-left font-bold flex items-center gap-3 "
+                className="text-white text-2xl md:text-4xl text-left font-bold flex items-center gap-2 md:gap-3"
               >
                 <RiMovie2Line className="text-red-500 text-3xl" />
                 {t("Our Upcoming Movies")}
@@ -311,9 +317,27 @@ export default function Home() {
                 speed={3000}
                 loop={true}
                 slidesPerView="auto"
-                spaceBetween={32}
+                spaceBetween={16}
                 className="w-full py-4"
                 key={locale}
+                breakpoints={{
+                  320: {
+                    slidesPerView: 2,
+                    spaceBetween: 8,
+                  },
+                  640: {
+                    slidesPerView: 3,
+                    spaceBetween: 16,
+                  },
+                  768: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                  },
+                  1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 32,
+                  },
+                }}
               >
                 {upcomingMovies.map((movie) => (
                   <SwiperSlide
@@ -342,16 +366,16 @@ export default function Home() {
                 ))}
               </Swiper>
             </div>
-            <div className="w-full bg-black min-h-screen flex flex-col items-center justify-center py-20">
+            <div className="w-full bg-black min-h-screen flex flex-col items-center justify-center py-10 md:py-20">
               <div
-                className="w-full max-w-[1800px] px-8 flex items-center justify-between mb-16 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-red-500 after:to-transparent after:opacity-50 py-4 "
+                className="w-full max-w-[1800px] px-4 md:px-8 flex items-center justify-between mb-8 md:mb-16"
                 dir={locale === "ar" ? "rtl" : "ltr"}
               >
                 <motion.h1
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="text-white text-4xl text-left font-bold flex items-center gap-3 "
+                  className="text-white text-2xl md:text-4xl text-left font-bold flex items-center gap-2 md:gap-3"
                 >
                   <FaTv className="text-red-500 text-3xl" />
                   {t("Our Top Rated Series")}
@@ -376,9 +400,27 @@ export default function Home() {
                   speed={3000}
                   loop={true}
                   slidesPerView="auto"
-                  spaceBetween={32}
+                  spaceBetween={16}
                   className="w-full py-4"
                   key={locale}
+                  breakpoints={{
+                    320: {
+                      slidesPerView: 2,
+                      spaceBetween: 8,
+                    },
+                    640: {
+                      slidesPerView: 3,
+                      spaceBetween: 16,
+                    },
+                    768: {
+                      slidesPerView: 4,
+                      spaceBetween: 24,
+                    },
+                    1024: {
+                      slidesPerView: 5,
+                      spaceBetween: 32,
+                    },
+                  }}
                 >
                   {series.map((movie) => (
                     <SwiperSlide

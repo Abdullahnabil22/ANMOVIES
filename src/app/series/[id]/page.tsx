@@ -18,7 +18,6 @@ import {
   FaChevronLeft,
   FaChevronRight,
   FaPlay,
-  FaInfoCircle,
 } from "react-icons/fa";
 import Image from "next/image";
 import Footer from "@/Components/Footer";
@@ -29,8 +28,9 @@ import "swiper/css/navigation";
 import Loading from "@/app/loading";
 import NavBar from "@/Components/Navbar";
 import { useLocale, useTranslations } from "next-intl";
-
+import { useRouter } from "next/navigation";
 function SeriesPage() {
+  const router = useRouter();
   const locale = useLocale();
   const t = useTranslations("Series");
   const { id } = useParams();
@@ -72,7 +72,7 @@ function SeriesPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="min-h-screen text-white p-4 md:p-8"
+          className="min-h-screen text-white p-2 sm:p-4 md:p-8"
           style={{
             backgroundImage: `linear-gradient(to bottom, rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.95)), url(https://image.tmdb.org/t/p/original${series.backdrop_path})`,
             backgroundSize: "cover",
@@ -82,19 +82,20 @@ function SeriesPage() {
           dir={locale === "ar" ? "rtl" : "ltr"}
         >
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-[300px,1fr] gap-8">
-              {/* Series Poster */}
+            <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-4 md:gap-8">
+              {/* Series Poster - centered on mobile */}
               <motion.div
                 initial={{ x: -50 }}
                 animate={{ x: 0 }}
                 transition={{ delay: 0.2 }}
+                className="flex justify-center md:block"
               >
                 <Image
                   src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}
                   alt={series.name}
                   width={300}
                   height={450}
-                  className="rounded-lg shadow-xl w-auto h-auto"
+                  className="rounded-lg shadow-xl w-[250px] md:w-[300px] h-auto"
                 />
               </motion.div>
 
@@ -103,7 +104,7 @@ function SeriesPage() {
                 initial={{ y: 20 }}
                 animate={{ y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="space-y-4"
+                className="space-y-4 px-2 md:px-0"
               >
                 {logo && (
                   <Image
@@ -114,7 +115,7 @@ function SeriesPage() {
                   />
                 )}
 
-                <div className="flex items-center space-x-4 text-gray-300">
+                <div className="flex flex-wrap items-center gap-4 text-gray-300">
                   <div className="flex items-center">
                     <FaStar className="text-yellow-500 mr-1" />
                     <span>{series.vote_average.toFixed(1)}</span>
@@ -159,8 +160,8 @@ function SeriesPage() {
                   ))}
                 </div>
 
-                {/* Additional Details */}
-                <div className="mt-8 grid grid-cols-3 gap-6">
+                {/* Additional Details - updated grid */}
+                <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-6">
                   <div className="p-4 bg-gray-800/50 rounded-lg backdrop-blur-sm border border-gray-700/50 hover:border-primary/50 transition-colors">
                     <h3 className="text-xl font-semibold text-primary">
                       {t("Seasons")}
@@ -188,10 +189,10 @@ function SeriesPage() {
                 {/* Networks Section */}
                 {series.networks && series.networks.length > 0 && (
                   <div className="mt-8">
-                    <h2 className="text-2xl font-semibold text-primary mb-4">
+                    <h2 className="text-xl md:text-2xl font-semibold text-primary mb-4">
                       {t("Networks")}
                     </h2>
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap gap-4">
                       {series.networks.map((network) => (
                         <div
                           key={network.id}
@@ -212,36 +213,38 @@ function SeriesPage() {
                   </div>
                 )}
 
-                {/* Seasons Section */}
+                {/* Seasons Section - updated grid */}
                 {series.seasons && series.seasons.length > 0 && (
                   <div className="mt-8">
-                    <h2 className="text-2xl font-semibold text-primary mb-4">
+                    <h2 className="text-xl md:text-2xl font-semibold text-primary mb-4">
                       {t("Seasons")}
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
                       {series.seasons.map((season) => (
                         <motion.div
                           key={season.id}
-                          whileHover={{ scale: 1.05 }}
-                          className="bg-gray-800/50 rounded-lg overflow-hidden"
+                          whileHover={{ scale: 1.03 }}
+                          className="bg-gray-800/50 rounded-lg overflow-hidden border border-gray-700/50 hover:border-primary/50 transition-all duration-300"
                         >
-                          <Image
-                            src={
-                              season.poster_path
-                                ? `https://image.tmdb.org/t/p/w300${season.poster_path}`
-                                : "/Default.png"
-                            }
-                            alt={season.name}
-                            width={200}
-                            height={300}
-                            className="w-full object-cover h-auto"
-                          />
-                          <div className="p-4">
-                            <h3 className="font-semibold text-white">
+                          <div className="relative aspect-[2/3] w-full">
+                            <Image
+                              src={
+                                season.poster_path
+                                  ? `https://image.tmdb.org/t/p/w300${season.poster_path}`
+                                  : "/Default.png"
+                              }
+                              alt={season.name}
+                              fill
+                              sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 25vw"
+                              className="object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                          </div>
+                          <div className="p-3 md:p-4">
+                            <h3 className="font-semibold text-white text-sm md:text-base truncate">
                               {season.name}
                             </h3>
-                            <p className="text-sm text-gray-400">
-                              {season.episode_count} Episodes
+                            <p className="text-xs md:text-sm text-gray-400 mt-1">
+                              {season.episode_count} {t("Episodes")}
                             </p>
                           </div>
                         </motion.div>
@@ -252,11 +255,10 @@ function SeriesPage() {
 
                 {credits.length > 0 && (
                   <div className="mt-8">
-                    <h2 className="text-2xl font-semibold text-primary mb-4">
+                    <h2 className="text-xl md:text-2xl font-semibold text-primary mb-4">
                       {t("Featured Cast")}
                     </h2>
-
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
                       {credits.slice(0, 8).map((credit) => (
                         <motion.div
                           key={credit.id}
@@ -295,15 +297,16 @@ function SeriesPage() {
             </div>
           </div>
 
-          <div className="mt-12 px-4 md:px-8  py-8">
+          {/* Recommendations Section */}
+          <div className="mt-8 md:mt-12 px-2 sm:px-4 md:px-8 py-4 md:py-8">
             <div className="max-w-7xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex items-center justify-between mb-6"
+                className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4"
               >
-                <h2 className="text-3xl font-bold text-white group">
+                <h2 className="text-2xl md:text-3xl font-bold text-white group text-center sm:text-left">
                   <span className="text-primary relative">
                     {t("Recommended")}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
@@ -342,7 +345,7 @@ function SeriesPage() {
                   disableOnInteraction: false,
                 }}
                 breakpoints={{
-                  640: { slidesPerView: 2 },
+                  480: { slidesPerView: 2 },
                   768: { slidesPerView: 3 },
                   1024: { slidesPerView: 4 },
                 }}
@@ -385,15 +388,11 @@ function SeriesPage() {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 className="p-2 rounded-full bg-primary/80 hover:bg-primary text-white transition-colors"
+                                onClick={() => {
+                                  router.push(`/series/${series.id}`);
+                                }}
                               >
                                 <FaPlay size={14} />
-                              </motion.button>
-                              <motion.button
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="p-2 rounded-full bg-gray-800/80 hover:bg-gray-700 text-white transition-colors"
-                              >
-                                <FaInfoCircle size={14} />
                               </motion.button>
                             </div>
                           </div>
@@ -405,15 +404,17 @@ function SeriesPage() {
               </Swiper>
             </div>
           </div>
-          <div className="mt-12 px-4 md:px-8 py-8">
+
+          {/* Similar Section - Apply same changes as Recommendations section */}
+          <div className="mt-8 md:mt-12 px-2 sm:px-4 md:px-8 py-4 md:py-8">
             <div className="max-w-7xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex items-center justify-between mb-6"
+                className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4"
               >
-                <h2 className="text-3xl font-bold text-white group">
+                <h2 className="text-2xl md:text-3xl font-bold text-white group text-center sm:text-left">
                   <span className="text-primary relative">
                     {t("Similar")}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
@@ -452,7 +453,7 @@ function SeriesPage() {
                   disableOnInteraction: false,
                 }}
                 breakpoints={{
-                  640: { slidesPerView: 2 },
+                  480: { slidesPerView: 2 },
                   768: { slidesPerView: 3 },
                   1024: { slidesPerView: 4 },
                 }}
@@ -495,15 +496,11 @@ function SeriesPage() {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 className="p-2 rounded-full bg-primary/80 hover:bg-primary text-white transition-colors"
+                                onClick={() => {
+                                  router.push(`/series/${series.id}`);
+                                }}
                               >
                                 <FaPlay size={14} />
-                              </motion.button>
-                              <motion.button
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="p-2 rounded-full bg-gray-800/80 hover:bg-gray-700 text-white transition-colors"
-                              >
-                                <FaInfoCircle size={14} />
                               </motion.button>
                             </div>
                           </div>

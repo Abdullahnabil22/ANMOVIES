@@ -18,7 +18,6 @@ import {
   FaChevronLeft,
   FaChevronRight,
   FaPlay,
-  FaInfoCircle,
 } from "react-icons/fa";
 import Image from "next/image";
 import Navbar from "@/Components/Navbar";
@@ -29,9 +28,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Loading from "@/app/loading";
 import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 function MoviePage() {
   const locale = useLocale();
+  const router = useRouter();
   const t = useTranslations("Movies");
   const { id } = useParams();
   const [movie, setMovie] = useState<Movie>();
@@ -68,7 +69,7 @@ function MoviePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="min-h-screen text-white p-4 md:p-8"
+          className="min-h-screen text-white p-2 sm:p-4 md:p-8"
           style={{
             backgroundImage: `linear-gradient(to bottom, rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.95)), url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
             backgroundSize: "cover",
@@ -78,19 +79,20 @@ function MoviePage() {
           dir={locale === "ar" ? "rtl" : "ltr"}
         >
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-[300px,1fr] gap-8">
-              {/* Movie Poster */}
+            <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-4 md:gap-8">
+              {/* Movie Poster - centered on mobile */}
               <motion.div
                 initial={{ x: -50 }}
                 animate={{ x: 0 }}
                 transition={{ delay: 0.2 }}
+                className="flex justify-center md:block"
               >
                 <Image
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
                   width={300}
                   height={450}
-                  className="rounded-lg shadow-xl w-auto h-auto"
+                  className="rounded-lg shadow-xl w-[250px] md:w-[300px] h-auto"
                 />
               </motion.div>
 
@@ -99,7 +101,7 @@ function MoviePage() {
                 initial={{ y: 20 }}
                 animate={{ y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="space-y-4"
+                className="space-y-4 px-2 md:px-0"
               >
                 {logo && (
                   <Image
@@ -107,10 +109,11 @@ function MoviePage() {
                     alt={movie.title}
                     width={400}
                     height={400}
+                    className="w-full max-w-[300px] md:max-w-[400px] h-auto"
                   />
                 )}
 
-                <div className="flex items-center space-x-4 text-gray-300">
+                <div className="flex items-center space-x-4 text-gray-300 overflow-x-auto pb-2">
                   <div className="flex items-center">
                     <FaStar className="text-yellow-500 mr-1" />
                     <span>{movie.vote_average.toFixed(1)}</span>
@@ -129,7 +132,7 @@ function MoviePage() {
                   {movie.overview}
                 </p>
 
-                {/* Genres */}
+                {/* Genres - improved wrapping */}
                 <div className="flex flex-wrap gap-2 mt-4">
                   {movie.genres?.map((genre, index) => (
                     <motion.span
@@ -155,8 +158,8 @@ function MoviePage() {
                   ))}
                 </div>
 
-                {/* Additional Details */}
-                <div className="mt-8 grid grid-cols-3 gap-6">
+                {/* Additional Details - updated grid */}
+                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                   <div className="p-4 bg-gray-800/50 rounded-lg backdrop-blur-sm border border-gray-700/50 hover:border-primary/50 transition-colors">
                     <h3 className="text-xl font-semibold text-primary">
                       {t("Original Language")}
@@ -184,11 +187,11 @@ function MoviePage() {
                 </div>
                 {credits.length > 0 && (
                   <div className="mt-8">
-                    <h2 className="text-2xl font-semibold text-primary mb-4">
+                    <h2 className="text-xl md:text-2xl font-semibold text-primary mb-4">
                       {t("Featured Cast")}
                     </h2>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
                       {credits.slice(0, 8).map((credit) => (
                         <motion.div
                           key={credit.id}
@@ -227,22 +230,17 @@ function MoviePage() {
             </div>
           </div>
 
-          <div className="mt-12 px-4 md:px-8  py-8">
+          <div className="mt-8 md:mt-12 px-2 sm:px-4 md:px-8 py-4 md:py-8">
             <div className="max-w-7xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="flex items-center justify-between mb-6"
-              >
-                <h2 className="text-3xl font-bold text-white group">
+              <motion.div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-xl md:text-3xl font-bold text-white group">
                   <span className="text-primary relative">
                     {t("Recommended")}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                   </span>{" "}
                   {t("Movies")}
                 </h2>
-                <div className="flex gap-4">
+                <div className="hidden md:flex gap-4">
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -274,11 +272,12 @@ function MoviePage() {
                   disableOnInteraction: false,
                 }}
                 breakpoints={{
-                  640: { slidesPerView: 2 },
-                  768: { slidesPerView: 3 },
-                  1024: { slidesPerView: 4 },
+                  320: { slidesPerView: 1.5, spaceBetween: 10 },
+                  480: { slidesPerView: 2, spaceBetween: 15 },
+                  768: { slidesPerView: 3, spaceBetween: 20 },
+                  1024: { slidesPerView: 4, spaceBetween: 30 },
                 }}
-                className="w-full pb-8"
+                className="w-full pb-4 md:pb-8"
               >
                 {recommendations.map((movie, index) => (
                   <SwiperSlide key={movie.id}>
@@ -317,15 +316,11 @@ function MoviePage() {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 className="p-2 rounded-full bg-primary/80 hover:bg-primary text-white transition-colors"
+                                onClick={() => {
+                                  router.push(`/movies/${movie.id}`);
+                                }}
                               >
                                 <FaPlay size={14} />
-                              </motion.button>
-                              <motion.button
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="p-2 rounded-full bg-gray-800/80 hover:bg-gray-700 text-white transition-colors"
-                              >
-                                <FaInfoCircle size={14} />
                               </motion.button>
                             </div>
                           </div>
@@ -337,22 +332,17 @@ function MoviePage() {
               </Swiper>
             </div>
           </div>
-          <div className="mt-12 px-4 md:px-8 py-8">
+          <div className="mt-8 md:mt-12 px-2 sm:px-4 md:px-8 py-4 md:py-8">
             <div className="max-w-7xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="flex items-center justify-between mb-6"
-              >
-                <h2 className="text-3xl font-bold text-white group">
+              <motion.div className="flex items-center justify-between mb-4 md:mb-6">
+                <h2 className="text-xl md:text-3xl font-bold text-white group">
                   <span className="text-primary relative">
                     {t("Similar")}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                   </span>{" "}
                   {t("Movies")}
                 </h2>
-                <div className="flex gap-4">
+                <div className="hidden md:flex gap-4">
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -384,11 +374,12 @@ function MoviePage() {
                   disableOnInteraction: false,
                 }}
                 breakpoints={{
-                  640: { slidesPerView: 2 },
-                  768: { slidesPerView: 3 },
-                  1024: { slidesPerView: 4 },
+                  320: { slidesPerView: 1.5, spaceBetween: 10 },
+                  480: { slidesPerView: 2, spaceBetween: 15 },
+                  768: { slidesPerView: 3, spaceBetween: 20 },
+                  1024: { slidesPerView: 4, spaceBetween: 30 },
                 }}
-                className="w-full pb-8"
+                className="w-full pb-4 md:pb-8"
               >
                 {similar.map((movie, index) => (
                   <SwiperSlide key={movie.id}>
@@ -427,15 +418,11 @@ function MoviePage() {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 className="p-2 rounded-full bg-primary/80 hover:bg-primary text-white transition-colors"
+                                onClick={() => {
+                                  router.push(`/movies/${movie.id}`);
+                                }}
                               >
                                 <FaPlay size={14} />
-                              </motion.button>
-                              <motion.button
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="p-2 rounded-full bg-gray-800/80 hover:bg-gray-700 text-white transition-colors"
-                              >
-                                <FaInfoCircle size={14} />
                               </motion.button>
                             </div>
                           </div>
