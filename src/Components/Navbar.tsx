@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { useLogged } from "../Context/logged";
 import {
@@ -12,8 +12,6 @@ import {
   FaSignOutAlt,
   FaTv,
   FaUserPlus,
-  FaBars,
-  FaTimes,
 } from "react-icons/fa";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
