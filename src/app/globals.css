@@ -49,3 +49,10 @@
   top: 0 !important;
   z-index: 100 !important;
 }
+
+.blue-gradient {
+  background: linear-gradient(45deg, #007bff, #00bfff) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
