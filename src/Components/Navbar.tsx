@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 import { useLogged } from "../Context/logged";
 import {
@@ -21,15 +22,28 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
   const locale = useLocale();
   const isRTL = locale === "ar";
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLogged(true);
+    }
+  }, [setIsLogged]);
+
   const handleLanguageChange = (langCode: string) => {
     Cookies.set("NEXT_LOCALE", langCode, {
       path: "/",
       expires: 365,
     });
-    window.location.reload();
+    const currentPath = window.location.pathname;
+    window.location.href = `/${langCode}${currentPath}`;
   };
+
+  if (!t || !locale) {
+    return null;
+  }
+
   return (
-    <nav className="bg-transparent backdrop-blur-sm sticky top-0 z-50 border-b border-white/5">
+    <nav className="bg-transparent backdrop-blur-sm sticky top-0 z-50 border-b border-white/5 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`flex items-center justify-between h-16 ${
@@ -192,5 +206,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
     </nav>
   );
 }
+
+NavBar.displayName = "NavBar";
 
 export default NavBar;

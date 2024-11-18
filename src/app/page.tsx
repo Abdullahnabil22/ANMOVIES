@@ -72,7 +72,7 @@ export default function Home() {
     };
 
     fetchData();
-  }, []);
+  }, [locale]);
 
   useEffect(() => {
     movies.forEach(async (movie) => {
