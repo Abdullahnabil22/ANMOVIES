@@ -43,7 +43,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
   }
 
   return (
-    <nav className="bg-transparent backdrop-blur-sm sticky top-0 z-50 border-b border-white/5 ">
+    <nav className="fixed w-full bg-transparent backdrop-blur-sm top-0 z-50 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`flex items-center justify-between h-16 ${
