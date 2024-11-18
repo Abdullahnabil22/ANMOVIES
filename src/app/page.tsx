@@ -191,7 +191,8 @@ export default function Home() {
                 grabCursor={true}
                 centeredSlides={true}
                 slidesPerView={3}
-                initialSlide={5}
+                loop={true}
+                initialSlide={10}
                 coverflowEffect={{
                   rotate: 30,
                   stretch: 0,
@@ -220,7 +221,7 @@ export default function Home() {
                   },
                 }}
               >
-                {nowPlayingMovies.slice(0, 10).map((movie) => (
+                {nowPlayingMovies.slice(0, 20).map((movie) => (
                   <SwiperSlide
                     key={movie.id}
                     className="!w-[300px]"
