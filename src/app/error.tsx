@@ -4,13 +4,7 @@ import { motion } from "framer-motion";
 import { BiMoviePlay, BiError } from "react-icons/bi";
 import { MdOutlineReplay } from "react-icons/md";
 
-function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+function Error({ reset }: { reset: () => void }) {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <motion.div
