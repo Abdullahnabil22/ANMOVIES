@@ -17,7 +17,14 @@
     "Email": "Email",
     "Password": "Password",
     "Sign In": "Sign In",
-    "Rating": "Rating"
+    "Rating": "Rating",
+    "Create New Account": "Create New Account",
+    "Username": "Username",
+    "Enter your username": "Enter your username",
+    "Enter your email": "Enter your email",
+    "Enter your password": "Enter your password",
+    "Sign Up": "Sign Up",
+    "Already have an account?": "Already have an account?"
   },
   "Series": {
     "Series": "Series",

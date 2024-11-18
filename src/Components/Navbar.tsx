@@ -159,7 +159,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
               } border-white/10 px-4`}
             >
               {[
-                { code: "ar", flag: "682", label: "Arabic" },
+                { code: "ar", flag: "EG", label: "Arabic" },
                 { code: "en", flag: "840", label: "English" },
               ].map(({ code, flag, label }) => (
                 <button

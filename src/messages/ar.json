@@ -17,7 +17,14 @@
     "Email": "البريد الإلكتروني",
     "Password": "كلمة المرور",
     "Sign In": "تسجيل الدخول",
-    "Rating": "تقييم"
+    "Rating": "تقييم",
+    "Create New Account": "انشاء حساب جديد",
+    "Username": "اسم المستخدم",
+    "Enter your username": "أدخل اسم المستخدم",
+    "Enter your email": "أدخل بريدك الإلكتروني",
+    "Enter your password": "أدخل كلمة المرور",
+    "Sign Up": "إنشاء حساب",
+    "Already have an account?": "لديك حساب بالفعل؟"
   },
   "Series": {
     "Series": "المسلسلات",
