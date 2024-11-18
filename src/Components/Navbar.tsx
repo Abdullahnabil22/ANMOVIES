@@ -79,7 +79,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden mobile-menu-button text-white p-2 hover:bg-white/10 rounded-lg transition-all duration-200"
+            className="block md:hidden mobile-menu-button text-white p-2 hover:bg-white/10 rounded-lg transition-all duration-200"
           >
             {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>

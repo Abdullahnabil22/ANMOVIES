@@ -65,29 +65,33 @@
   border: 3px solid rgba(255, 0, 0, 0.5) !important;
 }
 
-@media (max-width: 768px) {
-  .mobile-menu-button {
-    transition: background-color 0.2s ease;
-  }
-}
-
+/* Mobile menu styles */
 .mobile-menu {
-  display: none;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 5rem;
+  display: none; /* Hidden by default */
+  width: 100%;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(4px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* When the show class is added, display the menu */
 .mobile-menu.show {
   display: block;
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 767px) {
+  /* Mobile-specific styles */
   .mobile-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%; /* Position right below the navbar */
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-menu,
+  .mobile-menu-button {
     display: none !important;
   }
 }
