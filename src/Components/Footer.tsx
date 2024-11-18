@@ -16,25 +16,31 @@ function Footer({ bg }: { bg: string }) {
   };
   return (
     <footer
-      className={`${bg} text-white py-8 px-4`}
+      className={`${bg} text-white py-4 sm:py-8 px-2 sm:px-4`}
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <Link href="/" className="font-['Audiowide'] text-3xl font-bold">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-4 sm:mb-8">
+          <div className="text-center sm:text-left">
+            <Link
+              href="/"
+              className="font-['Audiowide'] text-2xl sm:text-3xl font-bold inline-block"
+            >
               <span className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent">
                 AN
               </span>
               <span>Movies</span>
             </Link>
-            <p className="text-gray-400 mt-2">{t("description")}</p>
+            <p className="text-gray-400 mt-2 text-sm sm:text-base">
+              {t("description")}
+            </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-xl font-semibold mb-4">{t("Quick Links")}</h4>
-            <ul className="space-y-2">
+          <div className="text-center sm:text-left">
+            <h4 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">
+              {t("Quick Links")}
+            </h4>
+            <ul className="space-y-1 sm:space-y-2">
               {[t("Movies"), t("Series")].map((item) => (
                 <li key={item}>
                   <Link
@@ -48,11 +54,11 @@ function Footer({ bg }: { bg: string }) {
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-xl font-semibold mb-4">
+          <div className="text-center sm:text-left">
+            <h4 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">
               {t("Connect With Us")}
             </h4>
-            <div className="flex ">
+            <div className="flex justify-center sm:justify-start">
               {Object.values(socialLinks).map(({ link, Icon }) => (
                 <a
                   key={link}
@@ -67,7 +73,7 @@ function Footer({ bg }: { bg: string }) {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-4 text-center text-gray-400 text-sm">
+        <div className="border-t border-gray-800 pt-2 sm:pt-4 text-center text-gray-400 text-xs sm:text-sm">
           <p>© 2024 AN Movies. {t("All rights reserved")}.</p>
           <p className="flex items-center justify-center gap-1 mt-2">
             {t("Made by Abdullah Nabil")}
