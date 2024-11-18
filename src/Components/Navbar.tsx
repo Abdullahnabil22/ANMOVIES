@@ -79,7 +79,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg"
+            className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg"
           >
             {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
@@ -214,7 +214,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
         </div>
 
         <div
-          className={`lg:hidden ${
+          className={`md:hidden ${
             isMenuOpen ? "block" : "hidden"
           } absolute left-0 right-0 top-20 bg-black/95 backdrop-blur-sm border-b border-white/5`}
         >
