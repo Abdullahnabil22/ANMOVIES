@@ -62,8 +62,8 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
               <span
                 className={
                   isSeries
-                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent"
-                    : "bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
+                    ? "text-transparent bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text"
+                    : "text-transparent bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text"
                 }
               >
                 AN
