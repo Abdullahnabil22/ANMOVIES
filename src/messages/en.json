@@ -1,0 +1,71 @@
+{
+  "Home": {
+    "Login": "Login",
+    "Register": "Register",
+    "Logout": "Logout",
+    "Home": "Home",
+    "Movies": "Movies",
+    "Series": "Series",
+    "Watch Now": "Watch Now",
+    "Our Today's Trending For You": "Our Today's Trending For You",
+    "Our Genres": "Our Genres",
+    "Our Upcoming Movies": "Our Upcoming Movies",
+    "See More": "See More",
+    "Our Top Rated Series": "Our Top Rated Series",
+    "Favorites": "Favorites",
+    "Don't have an account?": "Don't have an account?",
+    "Email": "Email",
+    "Password": "Password",
+    "Sign In": "Sign In",
+    "Rating": "Rating"
+  },
+  "Series": {
+    "Series": "Series",
+    "Search for a series": "Search for a series",
+    "No Series Found": "No Series Found",
+    "Sorry, we couldn't find any TV series matching your search": "Sorry, we couldn't find any TV series matching your search",
+    "Clear search": "Clear search",
+    "Search results for": "Search results for",
+    "Featured Cast": "Featured Cast",
+    "Recommended": "Recommended",
+    "Similar": "Similar",
+    "Original Language": "Original Language",
+    "Status": "Status",
+    "Budget": "Budget",
+    "Seasons": "Seasons",
+    "Episodes": "Episodes",
+    "Networks": "Networks"
+  },
+  "Movies": {
+    "Movies": "Movies",
+    "Search for a movie": "Search for a movie",
+    "No Movies Found": "No Movies Found",
+    "Sorry, we couldn't find any movies matching your search": "Sorry, we couldn't find any movies matching your search",
+    "Clear search": "Clear search",
+    "Search results for": "Search results for",
+    "Featured Cast": "Featured Cast",
+    "Recommended": "Recommended",
+    "Similar": "Similar",
+    "Original Language": "Original Language",
+    "Status": "Status",
+    "Budget": "Budget"
+  },
+  "Favorites": {
+    "Favorites": "Favorites",
+    "No Favorites Yet": "No Favorites Yet",
+    "Start adding movies and series to your favorites": "Start adding movies and series to your favorites"
+  },
+  "Footer": {
+    "description": "Your ultimate destination for movies and TV shows.",
+    "Quick Links": "Quick Links",
+    "Connect With Us": "Connect With Us",
+    "All rights reserved": "All rights reserved",
+    "Movies": "Movies",
+    "Series": "Series",
+    "Made by Abdullah Nabil": "Made by Abdullah Nabil"
+  },
+  "Pagination": {
+    "Previous": "Previous",
+    "Next": "Next"
+  }
+}

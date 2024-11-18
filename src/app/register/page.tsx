@@ -1,0 +1,123 @@
+"use client";
+
+import { useState, useContext } from "react";
+import { motion } from "framer-motion";
+import { FaEnvelope, FaLock, FaUser, FaUserPlus } from "react-icons/fa";
+import Link from "next/link";
+import { langContext } from "../../Context/lang";
+
+function Register() {
+  const { lang } = useContext(langContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-black/95">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-md p-8 rounded-2xl bg-zinc-900/50 backdrop-blur-sm border border-white/5"
+      >
+        <Link href="/" className="flex justify-center mb-8">
+          <span className="font-['Audiowide'] text-4xl font-bold">
+            <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
+              AN
+            </span>
+            <span className="text-white">Movies</span>
+          </span>
+        </Link>
+
+        <h2 className="text-2xl font-bold text-white mb-6 text-center">
+          {lang === "ar" ? "إنشاء حساب جديد" : "Create New Account"}
+        </h2>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              {lang === "ar" ? "اسم المستخدم" : "Username"}
+            </label>
+            <div className="relative">
+              <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none text-white"
+                placeholder={
+                  lang === "ar" ? "أدخل اسم المستخدم" : "Enter your username"
+                }
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              {lang === "ar" ? "البريد الإلكتروني" : "Email"}
+            </label>
+            <div className="relative">
+              <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none text-white"
+                placeholder={
+                  lang === "ar" ? "أدخل بريدك الإلكتروني" : "Enter your email"
+                }
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              {lang === "ar" ? "كلمة المرور" : "Password"}
+            </label>
+            <div className="relative">
+              <FaLock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none text-white"
+                placeholder={
+                  lang === "ar" ? "أدخل كلمة المرور" : "Enter your password"
+                }
+              />
+            </div>
+          </div>
+
+          <motion.button
+            whileHover={{
+              backgroundPosition: ["0%", "100%"],
+              transition: { duration: 0.8, repeat: Infinity },
+            }}
+            initial={{ backgroundPosition: "0%" }}
+            type="submit"
+            className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white rounded-lg transition-all duration-200 text-sm font-medium hover:shadow-lg hover:shadow-red-500/20 bg-[length:200%_100%]"
+          >
+            <FaUserPlus className="text-sm" />
+            <span>{lang === "ar" ? "إنشاء حساب" : "Sign Up"}</span>
+          </motion.button>
+
+          <p className="text-center text-gray-400 text-sm">
+            {lang === "ar" ? "لديك حساب بالفعل؟" : "Already have an account?"}{" "}
+            <Link
+              href="/login"
+              className="text-red-500 hover:text-red-400 transition-colors duration-200"
+            >
+              {lang === "ar" ? "تسجيل الدخول" : "Login"}
+            </Link>
+          </p>
+        </form>
+      </motion.div>
+    </div>
+  );
+}
+
+export default Register;

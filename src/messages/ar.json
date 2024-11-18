@@ -1,0 +1,71 @@
+{
+  "Home": {
+    "Login": "تسجيل الدخول",
+    "Register": "انضم لنا",
+    "Logout": "تسجيل الخروج",
+    "Home": "الرئيسية",
+    "Movies": "الأفلام",
+    "Series": "المسلسلات",
+    "Watch Now": "مشاهدة الآن",
+    "Our Today's Trending For You": "أفضل الأفلام اليوم",
+    "Our Genres": "فئات الأفلام",
+    "Our Upcoming Movies": "الأفلام القادمة",
+    "See More": "عرض المزيد",
+    "Our Top Rated Series": "أفضل المسلسلات",
+    "Favorites": "المفضلة",
+    "Don't have an account?": "ليس لديك حساب؟",
+    "Email": "البريد الإلكتروني",
+    "Password": "كلمة المرور",
+    "Sign In": "تسجيل الدخول",
+    "Rating": "تقييم"
+  },
+  "Series": {
+    "Series": "المسلسلات",
+    "Search for a series": "ابحث عن مسلسل",
+    "No Series Found": "لا يوجد مسلسلات",
+    "Sorry, we couldn't find any TV series matching your search": "للأسف، لم نستطع العثور على مسلسلات تطابق طلبك",
+    "Clear search": "مسح البحث",
+    "Search results for": "نتائج البحث عن",
+    "Featured Cast": "الممثلين الرئيسيين",
+    "Recommended": "موصى به",
+    "Similar": "مشابه",
+    "Original Language": "اللغة الأصلية",
+    "Status": "الحالة",
+    "Budget": "الميزانية",
+    "Seasons": "الأجزاء",
+    "Episodes": "الحلقات",
+    "Networks": "الشبكات"
+  },
+  "Movies": {
+    "Movies": "الأفلام",
+    "Search for a movie": "ابحث عن فيلم",
+    "No Movies Found": "لا يوجد افلام",
+    "Sorry, we couldn't find any movies matching your search": "للأسف، لم نستطع العثور على افلام تطابق طلبك",
+    "Clear search": "مسح البحث",
+    "Search results for": "نتائج البحث عن",
+    "Featured Cast": "الممثلين الرئيسيين",
+    "Recommended": "موصى به",
+    "Similar": "مشابه",
+    "Original Language": "اللغة الأصلية",
+    "Status": "الحالة",
+    "Budget": "الميزانية"
+  },
+  "Favorites": {
+    "Favorites": "المفضلة",
+    "No Favorites Yet": "لا توجد مفضلات",
+    "Start adding movies and series to your favorites": "ابدأ بإضافة الأفلام والمسلسلات إلى مفضلتك"
+  },
+  "Footer": {
+    "description": "وجهتك المفضلة للأفلام والمسلسلات",
+    "Quick Links": "الروابط السريعة",
+    "Connect With Us": "اتصل بنا",
+    "All rights reserved": "جميع الحقوق محفوظة",
+    "Movies": "الأفلام",
+    "Series": "المسلسلات",
+    "Made by Abdullah Nabil": "مصمم بواسطة عبدالله نبيل"
+  },
+  "Pagination": {
+    "Previous": "السابق",
+    "Next": "التالي"
+  }
+}
