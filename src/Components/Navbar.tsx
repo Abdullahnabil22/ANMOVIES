@@ -46,10 +46,9 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
 
   return (
     <nav className="bg-transparent backdrop-blur-sm sticky top-0 z-50 navbar border-b border-white/5 ">
-      <div className="hidden">Debug: {String(isSeries)}</div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`flex items-center justify-between h-16 ${
+          className={`flex items-center justify-between h-20 ${
             isRTL ? "flex-row-reverse" : ""
           }`}
         >
@@ -61,11 +60,11 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
           >
             <span className="font-['Audiowide'] text-4xl font-bold">
               <span
-                className={`bg-gradient-to-r ${
+                className={
                   isSeries
-                    ? "from-blue-500 via-blue-600 to-blue-700"
-                    : "from-red-500 via-red-600 to-red-700"
-                } bg-clip-text text-transparent`}
+                    ? "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent"
+                    : "bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent"
+                }
               >
                 AN
               </span>
