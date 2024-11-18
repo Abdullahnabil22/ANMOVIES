@@ -42,8 +42,8 @@ function Error({
           </h1>
 
           <p className="text-zinc-400">
-            We're experiencing some technical difficulties with this scene. Our
-            film crew is working on it!
+            We&apos;re experiencing some technical difficulties with this scene.
+            Our film crew is working on it!
           </p>
 
           <button

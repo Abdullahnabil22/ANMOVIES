@@ -24,7 +24,7 @@ function NotFound() {
         </motion.h1>
         <h2 className="text-2xl font-semibold mb-4">Cut! Scene Not Found</h2>
         <p className="text-gray-400 mb-8">
-          Looks like this scene didn't make the final cut
+          Looks like this scene didn&apos;t make the final cut
         </p>
 
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
