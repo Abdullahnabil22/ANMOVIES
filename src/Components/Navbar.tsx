@@ -187,8 +187,8 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                   className={`w-8 h-8 rounded-full overflow-hidden transition-all duration-200 ${
                     locale === code
                       ? isSeries
-                        ? "ring-2 ring-blue-500 ring-offset-1 ring-offset-black"
-                        : "ring-2 ring-red-500 ring-offset-1 ring-offset-black"
+                        ? "ring-2 ring-blue-500 ring-offset-1 ring-offset-black blue-ring"
+                        : "ring-2 ring-red-500 ring-offset-1 ring-offset-black red-ring"
                       : "opacity-60 hover:opacity-100"
                   }`}
                 >
