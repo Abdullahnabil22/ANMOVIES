@@ -38,7 +38,6 @@ function NotFound() {
         </motion.div>
       </motion.div>
 
-      {/* Decorative film strip */}
       <div className="absolute top-0 left-0 w-full h-8 bg-black flex">
         {[...Array(20)].map((_, i) => (
           <div key={i} className="w-8 h-full border-r border-gray-800" />

@@ -80,7 +80,6 @@ function MoviePage() {
         >
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-4 md:gap-8">
-              {/* Movie Poster - centered on mobile */}
               <motion.div
                 initial={{ x: -50 }}
                 animate={{ x: 0 }}
@@ -96,7 +95,6 @@ function MoviePage() {
                 />
               </motion.div>
 
-              {/* Movie Details */}
               <motion.div
                 initial={{ y: 20 }}
                 animate={{ y: 0 }}
@@ -132,7 +130,6 @@ function MoviePage() {
                   {movie.overview}
                 </p>
 
-                {/* Genres - improved wrapping */}
                 <div className="flex flex-wrap gap-2 mt-4">
                   {movie.genres?.map((genre, index) => (
                     <motion.span
@@ -158,7 +155,6 @@ function MoviePage() {
                   ))}
                 </div>
 
-                {/* Additional Details - updated grid */}
                 <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                   <div className="p-4 bg-gray-800/50 rounded-lg backdrop-blur-sm border border-gray-700/50 hover:border-primary/50 transition-colors">
                     <h3 className="text-xl font-semibold text-primary">

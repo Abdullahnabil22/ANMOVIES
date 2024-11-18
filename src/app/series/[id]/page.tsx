@@ -83,7 +83,6 @@ function SeriesPage() {
         >
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-4 md:gap-8">
-              {/* Series Poster - centered on mobile */}
               <motion.div
                 initial={{ x: -50 }}
                 animate={{ x: 0 }}
@@ -99,7 +98,6 @@ function SeriesPage() {
                 />
               </motion.div>
 
-              {/* Series Details */}
               <motion.div
                 initial={{ y: 20 }}
                 animate={{ y: 0 }}
@@ -134,7 +132,6 @@ function SeriesPage() {
                   {series.overview}
                 </p>
 
-                {/* Genres */}
                 <div className="flex flex-wrap gap-2 mt-4">
                   {series.genres?.map((genre, index) => (
                     <motion.span
@@ -160,7 +157,6 @@ function SeriesPage() {
                   ))}
                 </div>
 
-                {/* Additional Details - updated grid */}
                 <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-6">
                   <div className="p-4 bg-gray-800/50 rounded-lg backdrop-blur-sm border border-gray-700/50 hover:border-primary/50 transition-colors">
                     <h3 className="text-xl font-semibold text-primary">
@@ -186,7 +182,6 @@ function SeriesPage() {
                   </div>
                 </div>
 
-                {/* Networks Section */}
                 {series.networks && series.networks.length > 0 && (
                   <div className="mt-8">
                     <h2 className="text-xl md:text-2xl font-semibold text-primary mb-4">
@@ -213,7 +208,6 @@ function SeriesPage() {
                   </div>
                 )}
 
-                {/* Seasons Section - updated grid */}
                 {series.seasons && series.seasons.length > 0 && (
                   <div className="mt-8">
                     <h2 className="text-xl md:text-2xl font-semibold text-primary mb-4">
@@ -297,7 +291,6 @@ function SeriesPage() {
             </div>
           </div>
 
-          {/* Recommendations Section */}
           <div className="mt-8 md:mt-12 px-2 sm:px-4 md:px-8 py-4 md:py-8">
             <div className="max-w-7xl mx-auto">
               <motion.div
@@ -405,7 +398,6 @@ function SeriesPage() {
             </div>
           </div>
 
-          {/* Similar Section - Apply same changes as Recommendations section */}
           <div className="mt-8 md:mt-12 px-2 sm:px-4 md:px-8 py-4 md:py-8">
             <div className="max-w-7xl mx-auto">
               <motion.div

@@ -38,7 +38,6 @@ function Login() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md p-8 rounded-2xl bg-zinc-900/50 backdrop-blur-sm border border-white/5"
       >
-        {/* Logo */}
         <Link href="/" className="flex justify-center mb-8">
           <span className="font-['Audiowide'] text-4xl font-bold">
             <span className="bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent">
