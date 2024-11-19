@@ -106,7 +106,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
             {isLogged && (
               <Link
                 href="/favorites"
-                className={`flex items-center gap-1 sm:gap-2 ${
+                className={`flex items-center gap-1 sm:gap-2 nav-link  ${
                   isRTL ? "flex-row-reverse" : ""
                 } 
                   px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg text-gray-300 hover:text-white 
@@ -117,7 +117,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                     isSeries ? "text-blue-500" : "text-red-500"
                   }`}
                 />
-                <span className="hidden md:inline">{t("Favorites")}</span>
+                <span className="nav-link-text">{t("Favorites")}</span>
               </Link>
             )}
           </div>
@@ -136,7 +136,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                 className={`flex items-center gap-1 sm:gap-2 ${
                   isRTL ? "flex-row-reverse" : ""
                 } 
-                  px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 
+                  px-2 sm:px-3 md:px-4 py-1.5 sm:py-2  nav-link 
                   ${
                     isSeries
                       ? "bg-blue-600 hover:bg-blue-700"
@@ -145,7 +145,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                   text-white rounded-lg transition-all duration-200 text-xs sm:text-sm font-medium`}
               >
                 <FaSignOutAlt className="text-xs sm:text-sm" />
-                <span className="hidden md:inline">{t("Logout")}</span>
+                <span className="nav-link-text">{t("Logout")}</span>
               </button>
             ) : (
               <div
@@ -158,11 +158,11 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                   className={`flex items-center gap-1 sm:gap-2 ${
                     isRTL ? "flex-row-reverse" : ""
                   } 
-                    px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-gray-300 hover:text-white 
+                    px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-gray-300 hover:text-white nav-link
                     hover:bg-white/10 rounded-lg transition-all duration-200 text-xs sm:text-sm font-medium`}
                 >
                   <FaSignInAlt className="text-xs sm:text-sm" />
-                  <span className="hidden md:inline">{t("Login")}</span>
+                  <span className="nav-link-text">{t("Login")}</span>
                 </Link>
                 <Link
                   href="/register"
@@ -178,7 +178,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                     text-white rounded-lg transition-all duration-200 text-xs sm:text-sm font-medium`}
                 >
                   <FaUserPlus className="text-xs sm:text-sm" />
-                  <span className="hidden md:inline">{t("Register")}</span>
+                  <span className="nav-link-text">{t("Register")}</span>
                 </Link>
               </div>
             )}
