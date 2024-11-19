@@ -318,7 +318,7 @@ export default function Home() {
                   delay: 2000,
                   disableOnInteraction: false,
                 }}
-                speed={1000}
+                speed={3000}
                 loop={true}
                 slidesPerView="auto"
                 spaceBetween={16}
@@ -404,7 +404,7 @@ export default function Home() {
                     delay: 2000,
                     disableOnInteraction: false,
                   }}
-                  speed={1000}
+                  speed={3000}
                   loop={true}
                   slidesPerView="auto"
                   spaceBetween={16}
