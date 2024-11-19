@@ -58,13 +58,13 @@ function Footer({ bg }: { bg: string }) {
             <h4 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">
               {t("Connect With Us")}
             </h4>
-            <div className="flex items-center space-x-2 sm:space-x-4 justify-center sm:justify-start sm:items-start">
+            <div className="social-links-container">
               {Object.values(socialLinks).map(({ link, Icon }) => (
                 <a
                   key={link}
                   href={link}
                   target="_blank"
-                  className="text-gray-400 hover:text-red-500 transition-colors mx-2"
+                  className="social-link"
                 >
                   <Icon size={24} />
                 </a>
