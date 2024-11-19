@@ -48,7 +48,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
     <nav className="bg-transparent backdrop-blur-sm sticky top-0 z-50 navbar border-b border-white/5">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div
-          className={`flex items-center justify-between h-16 sm:h-20 ${
+          className={`flex items-center justify-between h-16  ${
             isRTL ? "flex-row-reverse" : ""
           }`}
         >
@@ -81,34 +81,26 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
           >
             <Link
               href="/movies"
-              className={`flex items-center gap-1 sm:gap-2 ${
-                isRTL ? "flex-row-reverse" : ""
-              } 
-                px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg text-gray-300 hover:text-white 
-                hover:bg-white/10 transition-all duration-200`}
+              className={`nav-link ${isRTL ? "flex-row-reverse" : ""}`}
             >
               <FaFilm
-                className={`text-sm sm:text-base ${
+                className={`nav-icon ${
                   isSeries ? "text-blue-500" : "text-red-500"
                 }`}
               />
-              <span className="hidden md:inline">{t("Movies")}</span>
+              <span className="nav-link-text">{t("Movies")}</span>
             </Link>
 
             <Link
               href="/series"
-              className={`flex items-center gap-1 sm:gap-2 ${
-                isRTL ? "flex-row-reverse" : ""
-              } 
-                px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg text-gray-300 hover:text-white 
-                hover:bg-white/10 transition-all duration-200`}
+              className={`nav-link ${isRTL ? "flex-row-reverse" : ""}`}
             >
               <FaTv
-                className={`text-sm sm:text-base ${
+                className={`nav-icon ${
                   isSeries ? "text-blue-500" : "text-red-500"
                 }`}
               />
-              <span className="hidden md:inline">{t("Series")}</span>
+              <span className="nav-link-text">{t("Series")}</span>
             </Link>
 
             {isLogged && (
@@ -192,9 +184,9 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
             )}
 
             <div
-              className={`flex items-center gap-1 sm:gap-2 
-              ${isRTL ? "border-r mr-2 sm:mr-4" : "border-l ml-2 sm:ml-4"} 
-              border-white/10 pl-2 sm:pl-4`}
+              className={`language-switcher ${
+                isRTL ? "border-r mr-2 sm:mr-4" : "border-l ml-2 sm:ml-4"
+              }`}
             >
               {[
                 { code: "ar", flag: "EG", label: "Arabic" },
@@ -206,7 +198,7 @@ function NavBar({ isSeries }: { isSeries: boolean }) {
                     handleLanguageChange(code);
                     window.location.href = window.location.pathname;
                   }}
-                  className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full overflow-hidden transition-all duration-200 ${
+                  className={`language-button ${
                     locale === code
                       ? isSeries
                         ? "ring-2 ring-blue-500 ring-offset-1 ring-offset-black blue-ring"
