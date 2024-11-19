@@ -295,7 +295,7 @@ export default function Home() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="text-white text-2xl md:text-4xl text-left font-bold flex items-center gap-2 md:gap-3"
               >
-                <RiMovie2Line className="text-red-500 text-base md:text-3xl" />
+                <RiMovie2Line className="text-red-500 text-sm md:text-3xl" />
                 {t("Our Upcoming Movies")}
               </motion.h1>
               <motion.div
@@ -314,8 +314,11 @@ export default function Home() {
             <div className="w-full">
               <Swiper
                 modules={[Autoplay]}
-                autoplay={{ delay: 0, disableOnInteraction: false }}
-                speed={3000}
+                autoplay={{
+                  delay: 2000,
+                  disableOnInteraction: false,
+                }}
+                speed={1000}
                 loop={true}
                 slidesPerView="auto"
                 spaceBetween={16}
@@ -378,7 +381,7 @@ export default function Home() {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="text-white text-2xl md:text-4xl text-left font-bold flex items-center gap-2 md:gap-3"
                 >
-                  <FaTv className="text-red-500 text-base md:text-3xl" />
+                  <FaTv className="text-red-500 text-sm md:text-3xl" />
                   {t("Our Top Rated Series")}
                 </motion.h1>
                 <motion.div
@@ -397,8 +400,11 @@ export default function Home() {
               <div className="w-full">
                 <Swiper
                   modules={[Autoplay]}
-                  autoplay={{ delay: 0, disableOnInteraction: false }}
-                  speed={3000}
+                  autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                  }}
+                  speed={1000}
                   loop={true}
                   slidesPerView="auto"
                   spaceBetween={16}
