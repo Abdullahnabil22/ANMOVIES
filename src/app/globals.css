@@ -91,7 +91,7 @@
 .language-switcher {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   border-color: rgba(255, 255, 255, 0.1);
   padding-left: 8px;
 }
@@ -104,7 +104,6 @@
   transition: all 0.2s;
 }
 
-/* Media queries for desktop */
 @media (min-width: 768px) {
   .nav-link {
     gap: 8px;
@@ -130,7 +129,6 @@
   }
 }
 
-/* Add these new styles */
 .social-links-container {
   display: flex;
   align-items: center;
@@ -139,18 +137,39 @@
 }
 
 .social-link {
-  color: #9ca3af; /* text-gray-400 */
+  color: #9ca3af;
   transition: color 0.3s;
   margin: 0 0.5rem;
 }
 
 .social-link:hover {
-  color: #ef4444; /* text-red-500 */
+  color: #ef4444;
 }
 
 @media (min-width: 640px) {
   .social-links-container {
     justify-content: flex-start;
     gap: 1rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .nav-link {
+    padding: 4px 12px;
+    gap: 4px;
+  }
+
+  .nav-icon {
+    font-size: 12px;
+  }
+
+  .language-switcher {
+    gap: 1px;
+    padding-left: 4px;
+  }
+
+  .language-button {
+    width: 20px;
+    height: 20px;
   }
 }
