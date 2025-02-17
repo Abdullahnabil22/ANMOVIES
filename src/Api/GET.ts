@@ -22,7 +22,7 @@ export const getMovieLogo = async (id: number) => {
 
   return englishLogos.length > 0
     ? null
-    : `https://image.tmdb.org/t/p/original/${data.logos[0].file_path}`;
+    : `https://image.tmdb.org/t/p/original/${data.logos[0]?.file_path}`;
 };
 
 export const getNowPlayingMovies = async (lang: string) => {
